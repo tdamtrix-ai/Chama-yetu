@@ -1,62 +1,78 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHAMA YETU - Kenya</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHAMA YETU - Pochi: 0794147629</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#0a0a0a;color:#fff;padding-bottom:30px}
-.top{background:linear-gradient(135deg,#00d084,#00ff88);color:#000;padding:28px 20px;text-align:center;border-radius:0 0 28px 28px}
-.logo{font-size:26px;font-weight:900}
-.box{max-width:500px;margin:auto;padding:14px}
-.card{background:#161616;border:1px solid #242424;padding:16px;border-radius:16px;margin:12px 0}
-.badge{background:#00d084;color:#000;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:800;float:right}
-.progress{height:8px;background:#222;border-radius:10px;margin:8px 0;overflow:hidden}
-.fill{height:100%;background:#00d084;width:65%}
-.btn{background:#00d084;color:#000;border:0;padding:15px;width:100%;border-radius:12px;font-weight:900;font-size:15px;margin-top:10px}
-.btn2{background:#222;color:#fff;border:1px solid #333}
-.input{width:100%;background:#111;border:1px solid #333;padding:14px;border-radius:12px;color:#fff;margin:7px 0}
+body{background:#080808;color:#fff}
+.top{position:sticky;top:0;z-index:50;background:#0f0f0f;border-bottom:1px solid #222;display:flex;justify-content:space-between;padding:14px 16px;align-items:center}
+.logo{font-weight:900} .logo span{color:#00d084}
+.menu-btn{font-size:22px;background:#1a1a1a;border:1px solid #2a2a2a;width:40px;height:40px;border-radius:10px;color:#fff}
+.drawer{position:fixed;inset:0;z-index:100;display:none} .drawer.open{display:block} .backdrop{position:absolute;inset:0;background:rgba(0,0,0,.7)}
+.panel{position:absolute;left:0;top:0;bottom:0;width:280px;background:#111;border-right:1px solid #222;padding:20px}
+.m-item{padding:14px;border-radius:12px;margin:6px 0;background:#161616;border:1px solid #222}
+.box{max-width:520px;margin:auto;padding:12px}
+.card{background:#131313;border:1px solid #222;border-radius:18px;padding:14px;margin:12px 0}
+.badge{float:right;background:#00d084;color:#000;font-size:10px;font-weight:900;padding:3px 8px;border-radius:20px}
+.progress{height:8px;background:#222;border-radius:10px;margin:10px 0;overflow:hidden} .fill{height:100%;background:#00d084}
+.btn{width:100%;background:#00d084;color:#000;border:0;padding:15px;border-radius:14px;font-weight:900}
+.btn2{background:#222;color:#fff;border:1px solid #333;margin-top:8px}
+.input{width:100%;background:#111;border:1px solid #2a2a2a;padding:14px;border-radius:12px;color:#fff;margin:6px 0}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;display:none;place-items:center;padding:16px} .modal.open{display:grid}
+.modal-box{background:#121212;border:1px solid #2a2a2a;border-radius:20px;padding:18px;width:100%;max-width:480px}
+.member{display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #1a1a1a;align-items:center}
+.avatar{width:36px;height:36px;background:#222;border-radius:50%;display:grid;place-items:center;color:#00d084;font-weight:800}
 </style>
 </head>
 <body>
-<div class="top">
-<div class="logo">CHAMA YETU 🇰🇪</div>
-<p style="font-size:12px;font-weight:800;letter-spacing:2px;margin-top:4px">PLATFORM YA CHAMA KENYA</p>
-<p style="margin-top:8px;font-size:13px">Unda Chama • Fuatilia Pesa • M-Pesa Auto</p>
-</div>
+<div class="top"><button class="menu-btn" onclick="toggleMenu()">☰</button><div class="logo">CHAMA <span>YETU</span></div><div onclick="openAuth()" style="width:38px;height:38px;background:#1e1e1e;border-radius:50%;display:grid;place-items:center">👤</div></div>
+<div class="drawer" id="drawer" onclick="toggleMenu()"><div class="backdrop"></div><div class="panel" onclick="event.stopPropagation()">
+<div class="logo">CHAMA <span>YETU</span></div>
+<div style="font-size:12px;color:#00d084;margin:10px 0">📞 Call: 0794147629<br>💰 Pochi: 0794147629<br>💬 WhatsApp: +254 180 653168</div>
+<div class="m-item" onclick="go('home')">🏠 Nyumbani</div><div class="m-item" onclick="go('my')">💼 Chama Zangu</div><div class="m-item" onclick="go('create')">➕ Unda Chama</div><div class="m-item" onclick="go('admin')">🔐 Admin</div><div class="m-item" onclick="openAuth()">🔑 Sign In</div>
+<a href="tel:0794147629" style="text-decoration:none"><div class="m-item" style="background:#00d084;color:#000;font-weight:800">📞 PIGA SIMU 0794147629</div></a>
+<a href="https://wa.me/254180653168?text=Niaje%20Chama%20Yetu%20Niko%20na%20swali" style="text-decoration:none"><div class="m-item" style="background:#25D366;color:#000;font-weight:800">💬 WHATSAPP US</div></a>
+</div></div>
 <div class="box">
-<button class="btn" onclick="document.getElementById('create').scrollIntoView({behavior:'smooth'})">+ UNDA CHAMA YAKO (FREE 1 MONTH)</button>
-
-<div class="card" style="border:1px solid #00d084">
-<b>Boda Boda Umoja Innercore</b><span class="badge">ACTIVE</span><br>
-<small style="color:#888">20/20 Members • Chairman Collins</small>
-<p style="margin-top:8px"><b>Goal: Mbuzi ya December</b></p>
-<div class="progress"><div class="fill"></div></div>
-<small style="color:#888">KSH 32,500 / 50,000</small><br>
-<button class="btn btn2">Angalia Chama →</button>
+<div id="page-home"><input id="searchInput" class="input" placeholder="🔍 Tafuta chama..." oninput="render()"><button class="btn" onclick="go('create')">+ UNDA CHAMA YAKO FREE</button><div id="chamaList"></div></div>
+<div id="page-my" style="display:none"><div id="myList"></div></div>
+<div id="page-create" style="display:none"><div class="card"><h3>Unda Chama Yako</h3><input id="cName" class="input" placeholder="Jina ya Chama"><input id="cGoal" class="input" placeholder="Goal"><input id="cAmount" class="input" type="number" placeholder="KSH per mtu"><button class="btn" onclick="createChama()">UNDA</button></div></div>
+<div id="page-admin" style="display:none"><div id="adminList"></div></div>
 </div>
-
-<div class="card">
-<b>Wamama wa Chipo Kayole</b><span class="badge">ACTIVE</span><br>
-<small style="color:#888">15/40 Members • Mama Njeri</small>
-<p style="margin-top:8px"><b>Goal: Fridge ya Biashara</b></p>
-<div class="progress"><div class="fill" style="width:40%"></div></div>
-<small style="color:#888">KSH 20,000 / 50,000</small><br>
-<button class="btn btn2">Angalia Chama →</button>
-</div>
-
-<div class="card" id="create">
-<h3>Unda Chama Yako Sasa</h3>
-<p style="color:#888;font-size:12px;margin:6px 0">Pesa inaenda Till yako. Sisi tunakupa system tu.</p>
-<input class="input" placeholder="Jina ya Chama (mf: Vijana wa Gym)">
-<input class="input" placeholder="Namba yako (Chairman)">
-<input class="input" placeholder="Goal ni nini?">
-<input class="input" type="number" placeholder="Kila mtu atalipa KSH?">
-<button class="btn" onclick="alert('🔥 Chama Imeundwa! Tutakutumia link ya admin kwa SMS.')">UNDA CHAMA - ANZA FREE</button>
-<p style="text-align:center;color:#555;font-size:11px;margin-top:10px">✓ M-Pesa • ✓ WhatsApp • Rent KSH 500/month baada ya mwezi 1</p>
-</div>
-<p style="text-align:center;color:#333;font-size:11px;margin-top:20px">Built by TDAMTRIX AI • Umoja Innercore • © 2026</p>
-</div>
+<div class="modal" id="detailModal"><div class="modal-box">
+<div style="display:flex;justify-content:space-between"><h3 id="dName"></h3><button onclick="closeDetail()" style="background:#222;color:#fff;border:0;width:32px;height:32px;border-radius:50%">✕</button></div>
+<p id="dMeta" style="color:#888;font-size:12px"></p><div class="progress"><div id="dFill" class="fill" style="width:65%"></div></div><p id="dProgress" style="font-size:12px;color:#888"></p>
+<button id="joinBtn" class="btn" onclick="joinChama()">JIUNGE - LIPA POCHI 0794147629</button>
+<button class="btn btn2" onclick="showMembersDetail()">ANGALIA WATU NDANI</button>
+<a id="waLink" href="" target="_blank" style="text-decoration:none"><button class="btn btn2" style="background:#25D366;color:#000">💬 ULIZA KWA WHATSAPP +254 180 653168</button></a>
+<a href="tel:0794147629" style="text-decoration:none"><button class="btn btn2">📞 PIGA SIMU CHAIRMAN 0794147629</button></a>
+<div id="dMembers" style="margin-top:14px;display:none"></div>
+</div></div>
+<div class="modal" id="authModal"><div class="modal-box"><h3>Ingia</h3><input id="aName" class="input" placeholder="Jina lako"><input id="aPhone" class="input" placeholder="Namba 07..."><button class="btn" onclick="login()">INGIA</button><button class="btn btn2" onclick="closeAuth()">Funga</button></div></div>
+<script>
+let user=JSON.parse(localStorage.getItem('cy_user')||'null');
+let chamas=JSON.parse(localStorage.getItem('cy_chamas')||'null') || [{id:1,name:'Boda Boda Umoja Innercore',goal:'Mbuzi ya December',target:50000,collected:32500,members:20,chair:'Collins',phone:'0794147629',list:[{n:'Collins (Chair)',p:'0794147629',paid:3000},{n:'Kevin',p:'0712 456',paid:2000}]},{id:2,name:'Wamama wa Chipo Kayole',goal:'Fridge ya Biashara',target:50000,collected:20000,members:15,chair:'Mama Njeri',phone:'0794147629',list:[{n:'Mama Njeri',p:'0794147629',paid:2500}]},{id:3,name:'Vijana wa Gym Umoja',goal:'Dumbbells Mpya',target:30000,collected:18000,members:12,chair:'TDAMTRIX',phone:'0794147629',list:[{n:'Beast',p:'0794147629',paid:2000}]}];
+let myChamas=JSON.parse(localStorage.getItem('cy_my')||'[]'); let activeId=null;
+function save(){localStorage.setItem('cy_chamas',JSON.stringify(chamas));localStorage.setItem('cy_my',JSON.stringify(myChamas));localStorage.setItem('cy_user',JSON.stringify(user)); render();}
+function toggleMenu(){document.getElementById('drawer').classList.toggle('open')}
+function go(p){document.querySelectorAll('[id^=page-]').forEach(e=>e.style.display='none');document.getElementById('page-'+p).style.display='block';toggleMenu();render();}
+function render(){
+let q=(document.getElementById('searchInput')?.value||'').toLowerCase();
+let list = q ? chamas.filter(c=>(c.name+c.goal).toLowerCase().includes(q)) : chamas;
+let html=''; list.forEach(c=>{let pct=Math.round(c.collected/c.target*100); html+=`<div class="card" onclick="openDetail(${c.id})"><b>${c.name}</b><span class="badge">${pct}%</span><br><small style="color:#888">${c.members} Members • ${c.goal}</small><div class="progress"><div class="fill" style="width:${pct}%"></div></div><small>KSH ${c.collected.toLocaleString()} / ${c.target.toLocaleString()}</small><button class="btn btn2">Angalia Ndani → Pochi 0794147629</button></div>`});
+document.getElementById('chamaList').innerHTML=html;
+let myHtml=''; let mine=chamas.filter(c=>myChamas.includes(c.id)); mine.forEach(c=>{myHtml+=`<div class="card"><b>${c.name}</b><br><button class="btn btn2" onclick="openDetail(${c.id})">Fungua</button></div>`}); document.getElementById('myList').innerHTML=myHtml||'<div class="card">Bado huja-join</div>';
+let admHtml='<div class="card"><h3>Admin - Pesa inaingia Pochi 0794147629</h3><p style="color:#888;font-size:12px">WhatsApp yako +254 180 653168 itapokea orders</p></div>'; mine.forEach(c=>{admHtml+=`<div class="card"><b>${c.name}</b><br>Total KSH ${c.collected.toLocaleString()}<br><small>Call: 0794147629</small></div>`}); document.getElementById('adminList').innerHTML=admHtml;
+}
+function openDetail(id){activeId=id; let c=chamas.find(x=>x.id===id); document.getElementById('dName').innerText=c.name; document.getElementById('dMeta').innerText=c.members+' Members • Chair '+c.chair; document.getElementById('dFill').style.width=Math.round(c.collected/c.target*100)+'%'; document.getElementById('dProgress').innerText='KSH '+c.collected.toLocaleString()+' / '+c.target.toLocaleString(); document.getElementById('waLink').href=`https://wa.me/254180653168?text=Niaje%20nataka%20kujiunga%20na%20${encodeURIComponent(c.name)}%20Pochi%200794147629`; document.getElementById('dMembers').style.display='none'; document.getElementById('detailModal').classList.add('open');}
+function closeDetail(){document.getElementById('detailModal').classList.remove('open')}
+function showMembersDetail(){let c=chamas.find(x=>x.id===activeId); let cont=document.getElementById('dMembers'); cont.style.display='block'; let h=`<h4>Watu Ndani</h4>`; c.list.forEach(m=>{h+=`<div class="member"><div style="display:flex;gap:10px"><div class="avatar">${m.n[0]}</div><div><b style="font-size:13px">${m.n}</b><br><small>${m.p}</small></div></div><small>${m.paid?'KSH '+m.paid:'Bado'}</small></div>`}); cont.innerHTML=h;}
+function joinChama(){if(!user){openAuth();return;} if(!myChamas.includes(activeId)) myChamas.push(activeId); let c=chamas.find(x=>x.id===activeId); c.collected+=500; c.list.push({n:user.name,p:user.phone,paid:500}); save(); let msg=`Niaje%20nimejiunga%20na%20${encodeURIComponent(c.name)}%20Nimelipa%20500%20kwa%20Pochi%200794147629%20Jina%20langu%20${encodeURIComponent(user.name)}`; window.open(`https://wa.me/254180653168?text=${msg}`,'_blank'); alert('Umejiunga! Tuma KSH 500 kwa Pochi 0794147629. WhatsApp imetumwa kwa  +254 180 653168'); closeDetail(); go('my');}
+function createChama(){let n=document.getElementById('cName').value,g=document.getElementById('cGoal').value,a=parseInt(document.getElementById('cAmount').value); if(!n||!g||!a){alert('Jaza');return;} let id=Date.now(); chamas.unshift({id,name:n,goal:g,target:a*20,collected:0,members:1,chair:user?user.name:'You',phone:'0794147629',list:[]}); myChamas.push(id); save(); alert('Chama '+n+' imeundwa! Pochi ni 0794147629'); go('my');}
+function openAuth(){document.getElementById('authModal').classList.add('open')} function closeAuth(){document.getElementById('authModal').classList.remove('open')}
+function login(){let name=document.getElementById('aName').value,phone=document.getElementById('aPhone').value; if(!name||!phone){alert('Weka jina na namba');return;} user={name,phone}; save(); closeAuth();}
+render();
+</script>
 </body>
 </html>
