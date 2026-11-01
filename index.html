@@ -9,7 +9,7 @@
 body{background:#080808;color:#fff;font-family:sans-serif;padding:0}
 .header{background:#111;padding:16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222;position:sticky;top:0;z-index:10}
 
-/* TITLE INAWAKA KUBADILISHA RANGI */
+/* TITLE INAWAKA KUBADILISHA RANGI - KILA 3 SEC */
 .title{font-weight:900;font-size:22px;animation:titleGlow 3s infinite}
 @keyframes titleGlow{
 0%{color:#00d084;text-shadow:0 0 10px #00d084}
@@ -19,8 +19,8 @@ body{background:#080808;color:#fff;font-family:sans-serif;padding:0}
 100%{color:#00d084;text-shadow:0 0 10px #00d084}
 }
 
-/* MENU BUTTON INABLINK KUBADILISHA RANGI */
-.menu-btn{width:54px;height:54px;border:0;border-radius:14px;font-size:28px;font-weight:900;cursor:pointer;animation:menuBlink 1s infinite}
+/* MENU BUTTON INABLINK KUBADILISHA RANGI - KILA 3 SEC */
+.menu-btn{width:54px;height:54px;border:0;border-radius:14px;font-size:28px;font-weight:900;cursor:pointer;animation:menuBlink 3s infinite}
 @keyframes menuBlink{
 0%{background:#00d084;color:#000;box-shadow:0 0 15px #00d084;transform:scale(1)}
 25%{background:#ffcc00;color:#000;box-shadow:0 0 25px #ffcc00;transform:scale(1.05)}
@@ -33,28 +33,30 @@ body{background:#080808;color:#fff;font-family:sans-serif;padding:0}
 .card{background:#111;border:1px solid #222;border-radius:16px;padding:16px;margin-bottom:12px}
 .card h3{color:#00d084}
 
-/* POCHI BOX INABLINK RANGI TOFauti */
-.pochi-box{background:#111;border:3px solid;border-radius:18px;padding:16px;text-align:center;margin:16px 0;animation:pochiColor 2s infinite}
+/* POCHI BOX INABLINK RANGI TOFauti - KILA 3 SEC */
+.pochi-box{background:#111;border:3px solid;border-radius:18px;padding:16px;text-align:center;margin:16px 0;animation:pochiColor 3s infinite}
 @keyframes pochiColor{
 0%{border-color:#00d084;box-shadow:0 0 15px #00d084;background:#111}
 33%{border-color:#ffcc00;box-shadow:0 0 25px #ffcc00;background:#1a1a00}
 66%{border-color:#00ff9d;box-shadow:0 0 25px #00ff9d;background:#001a11}
 100%{border-color:#00d084;box-shadow:0 0 15px #00d084;background:#111}
 }
-.pochi-num{font-size:28px;font-weight:900;letter-spacing:3px;animation:numColor 2s infinite}
+.pochi-num{font-size:28px;font-weight:900;letter-spacing:3px;animation:numColor 3s infinite}
 @keyframes numColor{
 0%{color:#00d084}33%{color:#ffcc00}66%{color:#00ff9d}100%{color:#00d084}
 }
 
-/* BUTTON YA LIPA INABLINK KAMA ALARM NA KUBADILISHA RANGI */
-.btn-lipa{width:100%;border:0;padding:20px;border-radius:18px;font-weight:900;font-size:19px;letter-spacing:1px;cursor:pointer;animation:lipaBlink 0.7s infinite}
+/* BUTTON YA LIPA INABLINK KAMA ALARM NA KUBADILISHA RANGI - KILA 3 SEC */
+.btn-lipa{width:100%;border:0;padding:20px;border-radius:18px;font-weight:900;font-size:19px;letter-spacing:1px;cursor:pointer;animation:lipaBlink 3s infinite}
 @keyframes lipaBlink{
 0%{background:#00d084;color:#000;box-shadow:0 0 10px #00d084;transform:scale(1)}
-50%{background:#00ff9d;color:#000;box-shadow:0 0 40px #00ff9d,0 0 80px #00d084;transform:scale(1.04)}
+25%{background:#ffcc00;color:#000;box-shadow:0 0 25px #ffcc00,0 0 50px #ffcc00;transform:scale(1.02)}
+50%{background:#ff3b30;color:#fff;box-shadow:0 0 30px #ff3b30,0 0 60px #ff3b30;transform:scale(1.04)}
+75%{background:#00ff9d;color:#000;box-shadow:0 0 30px #00ff9d,0 0 60px #00ff9d;transform:scale(1.02)}
 100%{background:#00d084;color:#000;box-shadow:0 0 10px #00d084;transform:scale(1)}
 }
 
-/* CHAMA ITEMS ZINAWAKA KIDOGO */
+/* CHAMA ITEMS ZINAWAKA KIDOGO - KILA 3 SEC */
 .chama-item{background:#151515;border:1px solid #222;border-radius:12px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;animation:itemGlow 3s infinite}
 @keyframes itemGlow{
 0%,100%{border-color:#222}50%{border-color:#00d08433}
