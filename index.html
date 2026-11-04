@@ -28,194 +28,21 @@
   .jitsi-box{width:100%;height:420px;background:#000;border-radius:16px;margin-top:10px;display:none}
   .hidden{display:none}
   .total-box{background:linear-gradient(45deg,#0a84ff,#00b050);padding:14px;border-radius:14px;text-align:center;margin:10px 0}
-</style>
-</head>
-<body>
-
-<div class="header">💰 CHAMA YETU LIVE - SAMAKI | MBOGA | KINYOZI 🔴</div>
-
-<div class="tabs">
-  <button class="tab active" id="tab-groups" onclick="show('groups')">Groups & Accounts</button>
-  <button class="tab inactive" id="tab-live" onclick="show('live')">🔴 LIVE 20-40</button>
-  <button class="tab inactive" id="tab-chat" onclick="show('chat')">💬 Chat</button>
-</div>
-
-<div class="container">
-
-<!-- GROUPS + ACCOUNTS -->
-<div id="sec-groups">
-  <div class="total-box">
-    <div style="font-size:13px">JUMLA YA CHAMA YOTE</div>
-    <div style="font-size:26px;font-weight:900"><span id="grandTotal">0</span> KSH</div>
-    <small>Target: 1,500,000 KSH per group</small>
-  </div>
-
-  <div class="group-card">
-    <div style="display:flex;justify-content:space-between"><b>🐟 Watu wa Samaki</b><span class="live-badge">🔴 LIVE 12</span></div>
-    <small>Account: SAMAKI-001 | Members: <span id="c-samaki">0</span> | <span id="t-samaki">0</span> / 1.5M KSH</small>
-    <div style="background:#0f172a;height:8px;border-radius:10px;margin:8px 0"><div id="bar-samaki" style="height:8px;background:#0a84ff;width:0%;border-radius:10px"></div></div>
-    <button class="btn btn-blue" onclick="startGroupCall('samaki')">📞 Group Call Wote</button>
-    <button class="btn btn-dark" onclick="adminCall('samaki')">👑 Admin Piga One by One</button>
-    <button class="btn btn-green" onclick="openChat('samaki')">💬 Chat Group</button>
-    <button class="btn-live" onclick="startLive('samaki')">🔴 INGIA LIVE KAMA TIKTOK - Watu 20-40</button>
-  </div>
-
-  <div class="group-card">
-    <div style="display:flex;justify-content:space-between"><b>🥬 Watu wa Mboga</b><span class="live-badge" style="background:#00b050">3 online</span></div>
-    <small>Account: MBOGA-002 | Members: <span id="c-mboga">0</span> | <span id="t-mboga">0</span> / 1.5M KSH</small>
-    <div style="background:#0f172a;height:8px;border-radius:10px;margin:8px 0"><div id="bar-mboga" style="height:8px;background:#00b050;width:0%;border-radius:10px"></div></div>
-    <button class="btn btn-blue" onclick="startGroupCall('mboga')">📞 Group Call</button>
-    <button class="btn btn-green" onclick="openChat('mboga')">💬 Chat</button>
-    <button class="btn-live" onclick="startLive('mboga')">🔴 LIVE 20-40</button>
-  </div>
-
-  <div class="group-card">
-    <b>💈 Watu wa Kinyozi - 268334696</b><br>
-    <small>Account: KINYOZI-003 | Members: <span id="c-kinyozi">0</span> | <span id="t-kinyozi">0</span> / 1.5M KSH</small>
-    <div style="background:#0f172a;height:8px;border-radius:10px;margin:8px 0"><div id="bar-kinyozi" style="height:8px;background:#e53935;width:0%;border-radius:10px"></div></div>
-    <button class="btn btn-blue" onclick="startGroupCall('kinyozi')">📞 Group Call</button>
-    <button class="btn btn-dark" onclick="adminCall('kinyozi')">👑 Admin Call One by One</button>
-    <button class="btn-live" onclick="startLive('kinyozi')">🔴 LIVE Kama TikTok</button>
-  </div>
-
-  <div class="group-card" style="border:2px dashed #0a84ff">
-    <h4 style="margin:0">➕ Weka Pesa Kwa Group Account - 0 to 1.5M</h4>
-    <select id="gType" class="input">
-      <option value="samaki">🐟 Watu wa Samaki</option>
-      <option value="mboga">🥬 Watu wa Mboga</option>
-      <option value="kinyozi">💈 Watu wa Kinyozi</option>
-    </select>
-    <input id="gName" placeholder="Jina ya member" class="input">
-    <input id="gPhone" placeholder="Simu 07..." class="input">
-    <input id="gAmount" type="number" min="0" max="1500000" placeholder="Amount 0 - 1,500,000" class="input">
-    <select id="gRole" class="input">
-      <option value="member">Member wa kawaida</option>
-      <option value="admin">Admin / Secretary</option>
-    </select>
-    <button class="btn btn-green" style="width:100%;padding:14px" onclick="saveMember()">💾 SAVE KWA ACCOUNT</button>
-    <div id="memberListAll" style="margin-top:10px"></div>
-  </div>
-</div>
-
-<!-- LIVE SECTION - KAMA TIKTOK -->
-<div id="sec-live" class="hidden">
-  <div class="group-card">
-    <h3 style="margin:0">🔴 LIVE KAMA TIKTOK - <span id="liveGroupName">SAMAKI</span></h3>
-    <small id="liveInfo">Watu 20-40 wanaweza ingia live, kuongea kama audio, admin ana-control</small>
-    <div style="display:flex;gap:6px;margin-top:10px">
-      <button class="btn btn-red" onclick="muteAll()">🔇 Mute Wote</button>
-      <button class="btn btn-green" onclick="unmuteAll()">🔊 Ruhusu Kuongea</button>
-      <button class="btn btn-dark" onclick="endLive()">❌ Maliza Live</button>
-    </div>
-  </div>
-  <div id="jitsi-container" class="jitsi-box"></div>
-  <div class="group-card">
-    <b>🎙️ Live Audio Mode - Kama Ulicho Sema:</b><br>
-    <small>• Admin anazungumza - wote mnasikiza<br>• Mnaweza piga simu kwa secretary/admin one by one<br>• Watu 20-40 wana-join live</small>
-    <div id="liveMembers" style="margin-top:10px"></div>
-  </div>
-</div>
-
-<!-- CHAT SECTION -->
-<div id="sec-chat" class="hidden">
-  <div class="group-card" style="padding:10px">
-    <div style="display:flex;justify-content:space-between"><b id="chatTitle">💬 SAMAKI Group Chat</b><span class="live-badge">LIVE</span></div>
-  </div>
-  
-  <div class="chat-wrap">
-    <div class="chat-box" id="chatBox">
-      <div class="msg admin">👑 Admin: Karibuni kwa Chama Yetu! Hapa mnatuma pesa details, screenshots, na mnaongea live!</div>
-    </div>
-    <div style="display:flex;gap:5px;padding:10px;background:#1e293b">
-      <input id="chatInput" placeholder="Andika ujumbe kwa group..." class="input" style="margin:0">
-      <button class="btn btn-blue" onclick="sendText()">➤</button>
-    </div>
-    <div style="display:flex;gap:4px;padding:8px;background:#1e293b;border-top:1px solid #334155;flex-wrap:wrap">
-      <button class="btn btn-dark" onclick="sendAudio()">🎤 Audio - Unasikiza</button>
-      <button class="btn btn-green" onclick="sendMoney()">💰 Pesa Details</button>
-      <button class="btn btn-blue" onclick="sendPic()">📸 Screenshot / Picture</button>
-      <button class="btn btn-dark" onclick="sendNumber()">📱 Number</button>
-      <button class="btn btn-red" onclick="adminBroadcast()">👑 Admin Broadcast Kwa Wote</button>
-    </div>
-  </div>
-</div>
-
-</div>
-
-<script>
-let groups = JSON.parse(localStorage.getItem('chama_live_v2') || '{"samaki":[],"mboga":[],"kinyozi":[]}');
-let cur='samaki';
-let jitsiApi=null;
-
-function show(id){
-  document.querySelectorAll('[id^="sec-"]').forEach(s=>s.classList.add('hidden'));
-  document.getElementById('sec-'+id).classList.remove('hidden');
-  document.querySelectorAll('.tab').forEach(t=>{t.className='tab inactive'});
-  document.getElementById('tab-'+id).className='tab active';
-  if(id==='live' && !jitsiApi) startLive(cur);
-}
-
-function saveMember(){
-  const t=document.getElementById('gType').value, name=document.getElementById('gName').value, phone=document.getElementById('gPhone').value, amt=parseInt(document.getElementById('gAmount').value), role=document.getElementById('gRole').value;
-  if(!name||isNaN(amt)||amt<0||amt>1500000){alert('Jaza jina na amount 0 - 1,500,000');return;}
-  groups[t].push({name,phone,amount:amt,role,date:new Date().toLocaleTimeString()});
-  localStorage.setItem('chama_live_v2',JSON.stringify(groups));
-  document.getElementById('gName').value='';document.getElementById('gPhone').value='';document.getElementById('gAmount').value='';
-  updateAll();
-  document.getElementById('chatBox').innerHTML+=`<div class="msg">💰 <b>${name}</b> ameweka ${amt.toLocaleString()} KSH kwa ${t.toUpperCase()} account</div>`;
-  alert('Ime-save! '+name+' - '+amt+' KSH kwa '+t);
-}
-
-function updateAll(){
-  let grand=0, html='';
-  ['samaki','mboga','kinyozi'].forEach(g=>{
-    const tot=groups[g].reduce((s,m)=>s+m.amount,0); grand+=tot;
-    const perc=Math.min((tot/1500000)*100,100);
-    document.getElementById('c-'+g).innerText=groups[g].length;
-    document.getElementById('t-'+g).innerText=tot.toLocaleString();
-    document.getElementById('bar-'+g).style.width=perc+'%';
-    groups[g].forEach((m,i)=>{
-      html+=`<div style="display:flex;justify-content:space-between;padding:7px;border-bottom:1px solid #334155;font-size:12px"><span>${m.role==='admin'?'👑':''} <b>${m.name}</b> - ${m.phone} - ${m.amount.toLocaleString()}KSH</span><span><button class="btn btn-blue" style="padding:3px 7px" onclick="callOne('${m.phone}')">📞</button> <button class="btn btn-red" style="padding:3px 7px" onclick="delMem('${g}',${i})">X</button></span></div>`;
-    });
-  });
-  document.getElementById('grandTotal').innerText=grand.toLocaleString();
-  document.getElementById('memberListAll').innerHTML=html||'<small style="color:#94a3b8">Hakuna members bado</small>';
-  document.getElementById('liveMembers').innerHTML=html||'Hakuna members';
-}
-
-function delMem(g,i){ groups[g].splice(i,1); localStorage.setItem('chama_live_v2',JSON.stringify(groups)); updateAll(); }
-
-// LIVE KAMA TIKTOK - INAFANYA KAZI KWELI NA JITSI
-function startLive(g){
-  cur=g; document.getElementById('liveGroupName').innerText=g.toUpperCase();
-  show('live');
-  const container=document.getElementById('jitsi-container');
-  container.style.display='block'; container.innerHTML='';
-  const domain='meet.jit.si';
-  const options={ roomName:'SINDO-CHAMA-'+g.toUpperCase()+'-'+new Date().toISOString().slice(0,10), width:'100%', height:420, parentNode:container, configOverwrite:{startWithAudioMuted:false, startWithVideoMuted:true}, interfaceConfigOverwrite:{SHOW_JITSI_WATERMARK:false} };
-  jitsiApi=new JitsiMeetExternalAPI(domain,options);
-  document.getElementById('chatBox').innerHTML+=`<div class="msg admin">🔴 LIVE imeanza kwa ${g.toUpperCase()}! Watu 20-40 wanaweza join - Link: meet.jit.si/SINDO-CHAMA-${g.toUpperCase()}</div>`;
-}
-
-function startGroupCall(g){ startLive(g); alert('📞 Group Call ya '+g.toUpperCase()+' imeanza! Tuma link kwa members: https://meet.jit.si/SINDO-CHAMA-'+g.toUpperCase()+'\nWote 20-40 wanaweza ingia kama WhatsApp group call'); }
-function adminCall(g){ let list=groups[g].map((m,i)=> (i+1)+'. '+m.name+' - '+m.phone+(m.role==='admin'?' (Admin)':'')).join('\n'); alert('👑 Admin anapiga one by one kwa '+g.toUpperCase()+':\n\n'+(list||'Hakuna members')+'\n\nBonyeza 📞 kwa kila mtu kuita'); }
-function callOne(p){ window.open('tel:'+p); }
-function openChat(g){ cur=g; document.getElementById('chatTitle').innerText='💬 '+g.toUpperCase()+' GROUP CHAT'; show('chat'); document.getElementById('chatBox').innerHTML+=`<div class="msg">Umeingia ${g.toUpperCase()} - members ${groups[g].length} online - pesa total ${groups[g].reduce((s,m)=>s+m.amount,0).toLocaleString()}KSH</div>`; }
-function muteAll(){ if(jitsiApi) jitsiApi.executeCommand('muteEveryone'); alert('🔇 Wote wame-mute - admin pekee anaongea kama ulivyosema'); }
-function unmuteAll(){ alert('🔊 Wote wameruhusiwa kuongea sasa - kama group audio live'); }
-function endLive(){ if(jitsiApi){ jitsiApi.dispose(); jitsiApi=null; } document.getElementById('jitsi-container').style.display='none'; alert('Live imeisha'); }
-
-// CHAT
-function sendText(){ const i=document.getElementById('chatInput'); if(!i.value)return; document.getElementById('chatBox').innerHTML+=`<div class="msg me">${i.value}</div>`; i.value=''; document.getElementById('chatBox').scrollTop=99999; }
-function sendAudio(){ document.getElementById('chatBox').innerHTML+=`<div class="msg">🎤 Audio 0:14 sec - "Unasikiza kama ulivyosema kwa voice" - Inacheza...</div>`; }
-function sendMoney(){ const a=prompt('Weka pesa details / amount:'); if(a) document.getElementById('chatBox').innerHTML+=`<div class="msg me">💰 Pesa Details: ${a} KSH - Ime-post kwa group account ${cur.toUpperCase()}</div>`; }
-function sendPic(){ const url=prompt('Weka link ya screenshot/picture ama andika "mpesa":'); if(url){ if(url.toLowerCase().includes('mpesa')){ document.getElementById('chatBox').innerHTML+=`<div class="msg me pic">📸 M-Pesa Screenshot:<br><img src="https://via.placeholder.com/250x120/0a84ff/ffffff?text=M-PESA+${Date.now()}" style="width:100%;border-radius:8px;margin-top:6px"><br><small>Screenshot ya malipo - ${new Date().toLocaleTimeString()}</small></div>`; } else { document.getElementById('chatBox').innerHTML+=`<div class="msg me pic">📸 Picture: ${url}</div>`; } } }
-function sendNumber(){ const n=prompt('Weka number ya simu:'); if(n) document.getElementById('chatBox').innerHTML+=`<div class="msg me">📱 Number: ${n} - kwa group ${cur.toUpperCase()}</div>`; }
-function adminBroadcast(){ const m=prompt('Admin Broadcast kwa wote:'); if(m) document.getElementById('chatBox').innerHTML+=`<div class="msg admin">👑 ADMIN BROADCAST kwa WOTE (${cur.toUpperCase()}): ${m} - Wote wanasikiza kama ulivyosema</div>`; }
-
-updateAll();
-document.getElementById('chatInput').addEventListener('keypress',e=>{if(e.key==='Enter')sendText()});
-</script>
-
-</body>
-</html>
+  /* ===== DAY MENU - ADDED TU, HAKUNA KITU IMETOLEWA ===== */
+  .day-menu{background:linear-gradient(180deg,#d9f99d,#fef3c7,#bfdbfe);color:#111;padding:12px;border-radius:0 0 20px 20px}
+  .day-menu-top{display:flex;justify-content:space-between;align-items:center;font-weight:900;color:#444;font-size:13px}
+  .day-logo{text-align:center;margin:10px 0}
+  .day-logo h1{margin:0;font-size:28px;color:#14532d;letter-spacing:1px}
+  .day-logo small{color:#444}
+  .day-total{background:white;border-radius:16px;padding:14px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+  .day-total b{font-size:28px;color:#14532d}
+  .day-bar{height:10px;background:#e5e7eb;border-radius:10px;margin-top:8px;overflow:hidden}
+  .day-bar div{height:10px;background:linear-gradient(90deg,#22c55e,#f59e0b);width:58%}
+  .day-teams{margin-top:14px}
+  .team-card{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:14px;margin:8px 0;color:#111;font-weight:bold}
+  .team-samaki{background:#7dd3fc} .team-mboga{background:#fdba74} .team-kinyozi{background:#86efac}
+  .huduma{background:white;color:#111;border-radius:16px;padding:12px;margin-top:12px}
+  .huduma-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;text-align:center;margin-top:10px}
+  .huduma-item{background:#f8fafc;border-radius:12px;padding:10px 4px;font-size:11px;font-weight:bold;cursor:pointer;border:1px solid #e5e7eb}
+  .huduma-item span{font-size:22px;display:block}
+  .huduma-live{color:#dc
