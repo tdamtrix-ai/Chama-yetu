@@ -1,11 +1,108 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CHAMA YETU</title></head>
-<body style="margin:0;background:#0f172a;color:white;font-family:system-ui;text-align:center;padding:20px">
-<h1 style="color:#22c55e">🌾 CHAMA YETU</h1>
-<h2>KSh 875,400</h2>
-<p>DAY MENU - IMEFUNGUKA!</p>
-<div style="background:#7dd3fc;color:black;padding:15px;border-radius:14px;margin:10px">🐟 Watu wa Samaki - 12 - KSh 320,000</div>
-<div style="background:#fdba74;color:black;padding:15px;border-radius:14px;margin:10px">🥬 Watu wa Mboga - 15 - KSh 280,000</div>
-<div style="background:#86efac;color:black;padding:15px;border-radius:14px;margin:10px">💈 Watu wa Kinyozi - 10 - KSh 275,400</div>
-<p>Kama unaona hii, Pages inafanya kazi!</p>
-</body></html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CHAMA YETU</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:system-ui;background:#e8f5e9;padding-bottom:80px;color:#111}
+.top{background:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.top b{font-size:19px;color:#6b6b6b;letter-spacing:1px}
+.bell{font-size:24px;position:relative}.bell i{position:absolute;width:9px;height:9px;background:red;border-radius:50%;top:0;right:0}
+.main{background:linear-gradient(180deg,#d9f99d 0%,#fef3c7 45%,#bfdbfe 100%);padding:16px 14px 20px}
+.logo{display:flex;align-items:center;justify-content:center;gap:10px;margin:6px 0 14px}
+.logo-icon{width:58px;height:58px;background:linear-gradient(180deg,#f59e0b,#16a34a);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:34px}
+.logo h1{margin:0;font-size:30px;color:#14532d;line-height:1}.logo small{color:#444;font-size:13px}
+.total{background:#fff;border-radius:18px;padding:16px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.total .lab{display:flex;gap:8px;justify-content:center;color:#444;font-size:14px}.total b{display:block;text-align:center;font-size:36px;color:#123a2a;margin:4px 0}
+.total-row{display:flex;justify-content:space-between;font-size:13px;margin-top:8px}.total-row span:last-child{color:#d97706;font-weight:600}
+.bar{height:14px;background:#e5e7eb;border-radius:20px;margin-top:10px;overflow:hidden}.bar div{height:100%;width:58%;background:linear-gradient(90deg,#16a34a,#f59e0b);border-radius:20px}
+h2{font-size:24px;margin:22px 0 10px}
+.team{display:flex;border-radius:14px;overflow:hidden;margin:10px 0;box-shadow:0 3px 10px rgba(0,0,0,.1);cursor:pointer}
+.team-left{flex:1.2;display:flex;align-items:center;gap:10px;padding:14px;font-weight:700;font-size:16px}
+.team-left .ic{width:46px;height:46px;background:rgba(255,255,255,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.team-right{flex:1;background:rgba(255,255,255,.55);padding:12px 12px;font-weight:700}
+.team-right small{font-weight:500}.team-right b{font-size:18px}
+.t-samaki{background:#7dd3fc}.t-mboga{background:#fdba74}.t-kinyozi{background:#86efac}
+.huduma{background:#fff;border-radius:18px;padding:14px;margin-top:10px}
+.huduma-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 6px;text-align:center;margin-top:14px}
+.huduma-item{cursor:pointer;font-size:12px;font-weight:600;line-height:1.2}.huduma-item span{font-size:30px;display:block;margin-bottom:5px}.huduma-item .live{color:#dc2626;font-size:14px;line-height:1}.huduma-item .live small{background:red;color:#fff;padding:1px 4px;border-radius:4px;font-size:9px}
+.card{background:#fff;border-radius:16px;padding:14px;margin:12px 14px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.tabs{display:flex;gap:6px;padding:10px;background:#1e293b}.tab{flex:1;padding:11px;border:none;border-radius:10px;font-weight:bold;font-size:12px;color:#fff;cursor:pointer}.tab.active{background:#0a84ff}.tab.inactive{background:#334155}
+.btn{border:none;padding:10px 12px;border-radius:10px;font-weight:bold;color:#fff;margin:3px;font-size:12px;cursor:pointer}.btn-blue{background:#0a84ff}.btn-green{background:#00b050}.btn-red{background:#e53935}.btn-dark{background:#334155}.btn-live{background:linear-gradient(45deg,#ff0050,#ff8a00);width:100%;padding:14px;font-size:14px;margin-top:8px}
+.input{width:100%;padding:11px;margin:5px 0;border-radius:10px;border:1px solid #ddd;background:#f8fafc;color:#111}.chat-wrap{background:#fff;border-radius:16px;overflow:hidden;margin:10px 14px}.chat-box{height:300px;overflow-y:auto;padding:10px;background:#0f172a}.msg{background:#1e293b;color:#fff;padding:9px 12px;border-radius:12px;margin:6px 0;max-width:85%;font-size:13px}.msg.me{background:#0a84ff;margin-left:auto}.msg.admin{background:#00b050}.jitsi-box{width:100%;height:400px;background:#000;border-radius:16px;margin-top:10px;display:none}.hidden{display:none}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0 14px;border-top:1px solid #eee;z-index:30}.bottom div{text-align:center;font-size:12px;color:#666;cursor:pointer}.bottom div.active{color:#16a34a;font-weight:700}.bottom span{font-size:26px;display:block}
+</style></head><body>
+<div class="top"><span style="font-size:26px">☰</span><b>DAY MENU</b><span class="bell">🔔<i></i></span></div>
+
+<div id="page-home">
+<div class="main">
+<div class="logo"><div class="logo-icon">🌾</div><div><h1>CHAMA YETU</h1><small>Community Savings Group</small></div></div>
+<div class="total"><div class="lab">🇰🇪 Total Group Money</div><b>KSh 875,400</b><div class="total-row"><span>Goal: KSh 1.5M</span><span>58% - KSh 625,600 remaining</span></div><div class="bar"><div></div></div></div>
+<h2>Group Teams</h2>
+<div class="team" onclick="goTimu()"><div class="team-left t-samaki"><span class="ic">🐟</span><span>Fish Sellers<br><small>🐟</small></span></div><div class="team-right">👥 12 Members<br><b>KSh 320,000 💵</b></div></div>
+<div class="team" onclick="goTimu()"><div class="team-left t-mboga"><span class="ic">🥬</span><span>Vegetable Sellers<br><small>👥</small></span></div><div class="team-right">👥 15 Members<br><b>KSh 280,000 💵</b></div></div>
+<div class="team" onclick="goTimu()"><div class="team-left t-kinyozi"><span class="ic">💈</span><span>Barbers<br><small>💵</small></span></div><div class="team-right">👥 10 Members<br><b>KSh 275,400 💵</b></div></div>
+<div class="huduma"><h2 style="margin:0">Quick Services</h2><div class="huduma-grid">
+<div class="huduma-item" onclick="goTimu()"><span>👤</span>Profile</div>
+<div class="huduma-item" onclick="goTimu()"><span style="color:#fff;background:#16a34a;padding:2px 6px;border-radius:6px">M</span>Pay Now<br>M-Pesa</div>
+<div class="huduma-item" onclick="goTimu()"><span>📄</span>Loans</div>
+<div class="huduma-item" onclick="goLive()"><span class="live"><small>🎥 LIVE</small><br>LIVE<br>20-40</span></div>
+<div class="huduma-item" onclick="goLive()"><span>📞</span>Group Call</div>
+<div class="huduma-item" onclick="goChat()"><span>💬</span>Chat</div>
+<div class="huduma-item" onclick="goTimu()"><span>🕒</span>History</div>
+<div class="huduma-item" onclick="goTimu()"><span>🐖</span>Contributions</div>
+<div class="huduma-item" onclick="goTimu()"><span>📋</span>Reports</div>
+<div class="huduma-item" onclick="goTimu()"><span>👥</span>Borrowers</div>
+<div class="huduma-item" onclick="goTimu()"><span>📅</span>Meetings</div>
+<div class="huduma-item" onclick="goChat()"><span>ℹ️</span>Announcements</div>
+<div class="huduma-item" onclick="goTimu()"><span>👤</span>Applicants</div>
+<div class="huduma-item" onclick="goTimu()"><span>📋</span>Plans</div>
+<div class="huduma-item" onclick="goChat()"><span>ℹ️</span>Help</div>
+<div class="huduma-item" onclick="goTimu()"><span>⚙️</span>Settings</div>
+<div class="huduma-item" onclick="goTimu()"><span>💳</span>Payments</div>
+<div class="huduma-item" onclick="goTimu()"><span>⬇️</span>Withdrawals</div>
+<div class="huduma-item" onclick="goTimu()"><span>👥</span>Members</div>
+<div class="huduma-item" onclick="goTimu()"><span>📈</span>Statistics</div>
+</div></div>
+</div>
+</div>
+
+<div id="page-timu" class="hidden">
+<div class="tabs"><button class="tab active" id="tab-groups" onclick="show('groups')">Groups & Accounts</button><button class="tab inactive" id="tab-live" onclick="show('live')">🔴 LIVE 20-40</button><button class="tab inactive" id="tab-chat" onclick="show('chat')">💬 Chat</button></div>
+<div style="padding:0 14px"><div class="card" style="background:linear-gradient(45deg,#0a84ff,#00b050);color:#fff;text-align:center"><div>TOTAL GROUP MONEY</div><div style="font-size:26px;font-weight:900"><span id="grandTotal">0</span> KSH</div><small>Target: 1,500,000 KSH per group</small></div></div>
+<div id="sec-groups">
+<div class="card"><b>🐟 Fish Sellers - 🔴 LIVE 12</b><br><small>SAMAKI-001 | Members: <span id="c-samaki">0</span> | <span id="t-samaki">0</span> / 1.5M</small><br><button class="btn btn-blue" onclick="startGroupCall('samaki')">📞 Group Call</button><button class="btn btn-green" onclick="openChat('samaki')">💬 Chat</button><button class="btn-live" onclick="startLive('samaki')">🔴 JOIN LIVE LIKE TIKTOK</button></div>
+<div class="card"><b>🥬 Vegetable Sellers - 3 online</b><br><small>MBOGA-002 | Members: <span id="c-mboga">0</span> | <span id="t-mboga">0</span> / 1.5M</small><br><button class="btn btn-blue" onclick="startGroupCall('mboga')">📞 Group Call</button><button class="btn btn-green" onclick="openChat('mboga')">💬 Chat</button><button class="btn-live" onclick="startLive('mboga')">🔴 LIVE 20-40</button></div>
+<div class="card"><b>💈 Barbers - 268334696</b><br><small>KINYOZI-003 | Members: <span id="c-kinyozi">0</span> | <span id="t-kinyozi">0</span> / 1.5M</small><br><button class="btn btn-blue" onclick="startGroupCall('kinyozi')">📞 Group Call</button><button class="btn btn-dark" onclick="adminCall('kinyozi')">👑 Admin One by One</button><button class="btn-live" onclick="startLive('kinyozi')">🔴 LIVE Like TikTok</button></div>
+<div class="card" style="border:2px dashed #0a84ff"><h4 style="margin:0">➕ Add Money - 0 to 1.5M</h4><select id="gType" class="input"><option value="samaki">🐟 Fish Sellers</option><option value="mboga">🥬 Vegetable Sellers</option><option value="kinyozi">💈 Barbers</option></select><input id="gName" placeholder="Member name" class="input"><input id="gPhone" placeholder="Phone 07..." class="input"><input id="gAmount" type="number" placeholder="Amount 0 - 1,500,000" class="input"><select id="gRole" class="input"><option value="member">Normal Member</option><option value="admin">Admin</option></select><button class="btn btn-green" style="width:100%;padding:14px" onclick="saveMember()">💾 SAVE TO ACCOUNT</button><div id="memberListAll" style="margin-top:10px"></div></div>
+</div>
+<div id="sec-live" class="hidden"><div class="card"><h3 style="margin:0">🔴 LIVE - <span id="liveGroupName">SAMAKI</span></h3><button class="btn btn-red" onclick="muteAll()">🔇 Mute All</button><button class="btn btn-green" onclick="unmuteAll()">🔊 Allow To Talk</button><button class="btn btn-dark" onclick="endLive()">❌ End Live</button></div><div id="jitsi-container" class="jitsi-box"></div><div class="card"><div id="liveMembers"></div></div></div>
+<div id="sec-chat" class="hidden"><div class="card"><b id="chatTitle">💬 SAMAKI Group Chat</b></div><div class="chat-wrap"><div class="chat-box" id="chatBox"><div class="msg admin">👑 Admin: Welcome to Chama Yetu!</div></div><div style="display:flex;gap:5px;padding:10px;background:#1e293b"><input id="chatInput" placeholder="Type a message..." class="input" style="margin:0;background:#0f172a;color:#fff"><button class="btn btn-blue" onclick="sendText()">➤</button></div><div style="display:flex;gap:4px;padding:8px;background:#1e293b;flex-wrap:wrap"><button class="btn btn-dark" onclick="sendAudio()">🎤 Audio</button><button class="btn btn-green" onclick="sendMoney()">💰 Money</button><button class="btn btn-blue" onclick="sendPic()">📸 Screenshot</button><button class="btn btn-dark" onclick="sendNumber()">📱 Number</button><button class="btn btn-red" onclick="adminBroadcast()">👑 Broadcast</button></div></div></div>
+</div>
+
+<div class="bottom"><div class="active" id="nav-home" onclick="nav('home')"><span>🏠</span>Home</div><div id="nav-timu" onclick="nav('timu')"><span>👥</span>Teams</div><div id="nav-arifa" onclick="nav('arifa')"><span>🔔</span>Notifications</div><div id="nav-mimi" onclick="nav('mimi')"><span>👤</span>Me</div></div>
+<script>
+let groups={samaki:[],mboga:[],kinyozi:[]};try{groups=JSON.parse(localStorage.getItem('chama_live_v2')||'{"samaki":[],"mboga":[],"kinyozi":[]}')}catch(e){}
+let cur='samaki',jitsiApi=null;
+function nav(p){document.querySelectorAll('.bottom div').forEach(d=>d.classList.remove('active'));if(p==='home'){document.getElementById('page-home').classList.remove('hidden');document.getElementById('page-timu').classList.add('hidden');document.getElementById('nav-home').classList.add('active');window.scrollTo(0,0);}else if(p==='timu'){goTimu();}else if(p==='arifa'){alert('🔔 Notifications: Fish Sellers deposited KSh 320,000 - Vegetable Sellers KSh 280,000 - Barbers KSh 275,400');}else{alert('👤 Me: Your Profile - Admin / Member');}}
+function goTimu(){document.getElementById('page-home').classList.add('hidden');document.getElementById('page-timu').classList.remove('hidden');document.getElementById('nav-home').classList.remove('active');document.getElementById('nav-timu').classList.add('active');window.scrollTo(0,0);updateAll();}
+function goLive(){goTimu();show('live');}
+function goChat(){goTimu();show('chat');}
+function show(id){document.querySelectorAll('[id^="sec-"]').forEach(s=>s.classList.add('hidden'));var el=document.getElementById('sec-'+id);if(el)el.classList.remove('hidden');document.querySelectorAll('.tab').forEach(t=>t.className='tab inactive');var tb=document.getElementById('tab-'+id);if(tb)tb.className='tab active';if(id==='live'&&!jitsiApi)startLive(cur);}
+function saveMember(){const t=document.getElementById('gType').value,name=document.getElementById('gName').value,phone=document.getElementById('gPhone').value,amt=parseInt(document.getElementById('gAmount').value),role=document.getElementById('gRole').value;if(!name||isNaN(amt)){alert('Enter name and amount');return;}groups[t].push({name,phone,amount:amt,role});try{localStorage.setItem('chama_live_v2',JSON.stringify(groups))}catch(e){}document.getElementById('gName').value='';document.getElementById('gPhone').value='';document.getElementById('gAmount').value='';updateAll();alert('Saved! '+name);}
+function updateAll(){let grand=0,html='';['samaki','mboga','kinyozi'].forEach(g=>{const tot=groups[g].reduce((s,m)=>s+m.amount,0);grand+=tot;document.getElementById('c-'+g).innerText=groups[g].length;document.getElementById('t-'+g).innerText=tot.toLocaleString();groups[g].forEach((m,i)=>{html+='<div style="display:flex;justify-content:space-between;padding:7px;border-bottom:1px solid #eee;font-size:12px"><span>'+(m.role==='admin'?'👑':'')+' <b>'+m.name+'</b> - '+m.phone+' - '+m.amount.toLocaleString()+'KSH</span><span><button class="btn btn-blue" style="padding:3px 7px" onclick="callOne(\''+m.phone+'\')">📞</button> <button class="btn btn-red" style="padding:3px 7px" onclick="delMem(\''+g+'\','+i+')">X</button></span></div>'});});document.getElementById('grandTotal').innerText=grand.toLocaleString();document.getElementById('memberListAll').innerHTML=html||'<small>No members yet</small>';document.getElementById('liveMembers').innerHTML=html||'No members';}
+function delMem(g,i){groups[g].splice(i,1);try{localStorage.setItem('chama_live_v2',JSON.stringify(groups))}catch(e){}updateAll();}
+function loadJitsi(cb){if(window.JitsiMeetExternalAPI)return cb();var s=document.createElement('script');s.src='https://meet.jit.si/external_api.js';s.onload=cb;s.onerror=function(){alert('LIVE did not open - check internet');};document.head.appendChild(s);}
+function startLive(g){cur=g;document.getElementById('liveGroupName').innerText=g.toUpperCase();show('live');loadJitsi(function(){const c=document.getElementById('jitsi-container');c.style.display='block';c.innerHTML='';jitsiApi=new JitsiMeetExternalAPI('meet.jit.si',{roomName:'SINDO-CHAMA-'+g.toUpperCase()+'-'+new Date().toISOString().slice(0,10),width:'100%',height:400,parentNode:c,configOverwrite:{startWithAudioMuted:false,startWithVideoMuted:true},interfaceConfigOverwrite:{SHOW_JITSI_WATERMARK:false}});});}
+function startGroupCall(g){startLive(g);}
+function adminCall(g){let list=groups[g].map((m,i)=>(i+1)+'. '+m.name+' - '+m.phone).join('\n');alert('👑 Admin one by one:\n\n'+(list||'No members'));}
+function callOne(p){window.open('tel:'+p);}
+function openChat(g){cur=g;document.getElementById('chatTitle').innerText='💬 '+g.toUpperCase()+' GROUP CHAT';show('chat');}
+function muteAll(){if(jitsiApi)jitsiApi.executeCommand('muteEveryone');alert('🔇 Everyone muted');}
+function unmuteAll(){alert('🔊 Everyone can talk now');}
+function endLive(){if(jitsiApi){jitsiApi.dispose();jitsiApi=null;}document.getElementById('jitsi-container').style.display='none';}
+function sendText(){const i=document.getElementById('chatInput');if(!i.value)return;document.getElementById('chatBox').innerHTML+='<div class="msg me">'+i.value+'</div>';i.value='';}
+function sendAudio(){document.getElementById('chatBox').innerHTML+='<div class="msg">🎤 Audio 0:14 sec</div>';}
+function sendMoney(){const a=prompt('Enter money details:');if(a)document.getElementById('chatBox').innerHTML+='<div class="msg me">💰 Money: '+a+' KSH</div>';}
+function sendPic(){const u=prompt('Enter screenshot link:');if(u)document.getElementById('chatBox').innerHTML+='<div class="msg me">📸 '+u+'</div>';}
+function sendNumber(){const n=prompt('Enter phone number:');if(n)document.getElementById('chatBox').innerHTML+='<div class="msg me">📱 '+n+'</div>';}
+function adminBroadcast(){const m=prompt('Admin Broadcast:');if(m)document.getElementById('chatBox').innerHTML+='<div class="msg admin">👑 '+m+'</div>';}
+updateAll();
+</script></body></html>
